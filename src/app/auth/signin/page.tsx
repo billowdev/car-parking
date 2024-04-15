@@ -7,9 +7,7 @@ import { ICredential } from "@/interfaces/common.interface";
 // import * as userService from '@/services/user.service';
 import WithAuth from "@/components/WithAuth";
 
-import {
-  useRouter,
-} from "next/navigation";
+import { useRouter } from "next/navigation";
 import { postLogin } from "@/services/user.service";
 import {
   API_REQUEST_SUCCESS,
@@ -36,7 +34,7 @@ const SigninPage: React.FC = () => {
           text: "เข้าสู่ระบบสำเร็จ",
           confirmButtonText: "ปิด",
         });
-        router.push('/');
+        router.push("/");
       } else {
         Swal.fire({
           icon: "error",
@@ -56,8 +54,11 @@ const SigninPage: React.FC = () => {
   };
 
   return (
-    <div className="flex ">
-      <div className="justify-center items-center h-screen">
+    <div>
+<div className="flex justify-center items-center h-screen">
+        <div className="p-16 shadow-lg d-flex justify-content-center align-items-center">
+        <h1 className="text-center text-xl font-semibold mb-3">Car Parking</h1>
+        <h2 className="text-center text-md font-semibold mb-4">ลงชื่อเข้าใช้</h2>
       <Form
         name="normal_login"
         className="login-form"
@@ -70,7 +71,7 @@ const SigninPage: React.FC = () => {
         >
           <Input
             prefix={<UserOutlined className="site-form-item-icon" />}
-            placeholder="Username"
+            placeholder="ชื่อผู้ใช้"
           />
         </Form.Item>
         <Form.Item
@@ -80,22 +81,25 @@ const SigninPage: React.FC = () => {
           <Input
             prefix={<LockOutlined className="site-form-item-icon" />}
             type="password"
-            placeholder="Password"
+            placeholder="รหัสผ่าน"
           />
         </Form.Item>
         <Form.Item>
           <Button
             type="primary"
             htmlType="submit"
-            className="login-form-button"
+            className="login-form-button me-3"
           >
             เข้าสู่ระบบ
           </Button>
-          หรือ <a href="">สมัครสมาชิก!</a>
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+          <p className="me-3">หรือ</p> <a href="">สมัครสมาชิก!</a>
+          </div>
         </Form.Item>
       </Form>
-         </div>
-      
+    </div>
+    </div>
+
     </div>
   );
 };
